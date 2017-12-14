@@ -33,3 +33,40 @@ class FileServer:
         #If the file exists/isn't locked, return the last-modified http header
 
         return ''
+
+def _get_local_path(filepath):
+    #Convert the filepath uri in the FS.
+
+    return os.path.join(os.getcwd(), _config['fsroot'], filepath[1:])
+
+
+def _raise_if_locked(filepath):
+    #Raise a 401 unauthorized locked filepath
+    pass
+
+
+def _raise_if_dir_or_not_servable(filepath):
+    #Raise 406 if not servable
+    pass
+
+
+def _raise_if_not_exists(filepath):
+    pass
+
+def _init_file_server():
+    #notify the nameserver about out directories
+    pass
+
+
+_config = {
+        'lockserver': None,
+        'nameserver': None,
+        'directories': [],
+        'fsroot': 'fs/',
+        'srv': None,
+        }
+
+logging.info('Loading config file fileserver.dfs.json.')
+_config['directories'] = set(_config['directories'])
+
+_init_file_server()
