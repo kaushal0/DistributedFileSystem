@@ -1,0 +1,7 @@
+{
+    "DirectoryService": "0.0.0.0:8000",
+    "LockService": "0.0.0.0:8001",
+    "srv": "0.0.0.0:8002",
+    "directories": ["/data", "/src/vim"],
+    "root": "AccessServer/"
+}

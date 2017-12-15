@@ -1,0 +1,5 @@
+{
+    "DirectoryService": "0.0.0.0:8000",
+    "LockService": "0.0.0.0:8001",
+    "max_size": 1048576
+}

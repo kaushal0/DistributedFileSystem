@@ -33,7 +33,7 @@ class LockServer:
         raise web.conflict()
 
 
-    def POST(self, filepath):
+    """def POST(self, filepath):
 
         web.header('Content-Type', 'text/plain; charset=UTF-8')
         filepath = str(filepath)
@@ -48,7 +48,8 @@ class LockServer:
             raise web.unauthorized()
 
 
-    def DELETE(self, filepath):
+    """
+    """def DELETE(self, filepath):
 
         web.header('Content-Type', 'text/plain; charset=UTF-8')
 
@@ -60,9 +61,9 @@ class LockServer:
         elif filepath in _locks:
             raise web.badrequest()
         else:
-            return 'OK'
+            return 'OK'"""
 
-
+"""
 def _lock_expired(filepath):
     #Returns True if the lock of filepath has expired
 
@@ -106,7 +107,7 @@ def _revoke_lock(filepath):
     if filepath in _locks:
         #logging.info('Revoking lock on %s.', filepath)
         del _locks[filepath]
-
+"""
 
 _config = {
             'dbfile': 'locks.db',
