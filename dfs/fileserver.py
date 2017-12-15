@@ -44,7 +44,7 @@ class FileServer:
 def _get_local_path(filepath):
     #Convert the filepath uri in the FS.
 
-    return os.path.join(os.getcwd(), _config['fsroot'], filepath[1:])
+    return os.path.join(os.getcwd(), _config['root'], filepath[1:])
 
 
 def _raise_if_locked(filepath):
@@ -71,22 +71,22 @@ def _raise_if_not_exists(filepath):
 
 def _init_file_server():
     #notify the nameserver about out directories
-    host, port = utils.get_host_port(_config['nameserver'])
+    host, port = utils.get_host_port(_config['DirectoryService'])
     with closing(HTTPConnection(host, port)) as con:
         data = 'srv=%s&dirs=%s' % (_config['srv'],
                                 '\n'.join(_config['directories']),)
         con.request('POST', '/', data)
 
 
-_config = {
-        'lockserver': None,
-        'nameserver': None,
+Config = {
+        'LockService': None,
+        'DirectoryService': None,
         'directories': [],
-        'fsroot': 'fs/',
+        'root': 'fs/',
         'srv': None,
         }
 
 logging.info('Loading config file fileserver.dfs.json.')
-_config['directories'] = set(_config['directories'])
+Config['directories'] = set(onfig['directories'])
 
 _init_file_server()
